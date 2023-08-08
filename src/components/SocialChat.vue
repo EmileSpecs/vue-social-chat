@@ -44,7 +44,7 @@
         :title="ariaLabelButton"
         @click="togglePopup"
       >
-        <span v-show="!show || !icon">
+        <span class="vsc-button-open" :class="{'vsc-button-showing': !show}" v-show="!show || !icon">
           <slot
             name="button"
             :open="show"
@@ -56,12 +56,15 @@
             >
           </slot>
         </span>
-        <img
-          v-show="show && icon"
-          :src="`${urlAssets}/icons/close.svg`"
-          alt="close icon"
-          aria-hidden="true"
-        >
+        <span class="vsc-button-close" :class="{'vsc-button-close-showing': show}" v-show="show && icon">
+          <slot name="button-close">
+            <img
+              :src="`${urlAssets}/icons/close.svg`"
+              alt="close icon"
+              aria-hidden="true"
+            >
+          </slot>
+        </span>
       </button>
     </div>
   </FocusLoop>
@@ -92,6 +95,11 @@ export default defineComponent({
       default: () => ([])
     },
 
+    urlAssets: {
+      type: String,
+      default: URL_ASSETS
+    },
+
     dir: {
       type: String,
       default: 'ltr'
@@ -113,7 +121,6 @@ export default defineComponent({
 
   setup(_, { emit }) {
     const show = ref(false)
-    const urlAssets = ref(URL_ASSETS)
     const vscPopup = ref(null)
     const vscButton = ref(null)
 
@@ -149,7 +156,6 @@ export default defineComponent({
 
     return {
       show,
-      urlAssets,
       vscPopup,
       vscButton,
       togglePopup
