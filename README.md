@@ -1,4 +1,9 @@
-# vue-social-chat
+# Vue-social-chat for Vue 3
+
+---
+🔥 HEADS UP! You are in the Vue 3 compatible branch, [check the branch for Vue 2 support](https://github.com/ktquez/vue-social-chat).
+
+---
 
 ---
 🔥 HEADS UP! You are in the Vue 2 compatible branch, [check the branch for Vue 3 support](https://github.com/ktquez/vue-social-chat/tree/next).
