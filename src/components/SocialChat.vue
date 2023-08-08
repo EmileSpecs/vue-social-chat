@@ -36,7 +36,7 @@
       <button
         ref="vscButton"
         class="vsc-popup-button vsc-popup-button--default"
-        :class="{ 'vsc-popup-button--no-icon': !icon }"
+        :class="{ 'vsc-popup-button--no-icon': !icon, 'vsc-button-showing': !show, 'vsc-button-close-showing': show }"
         aria-haspopup="true"
         aria-controls="vsc-popup-box"
         :aria-expanded="show ? 'true' : 'false'"
@@ -44,7 +44,7 @@
         :title="ariaLabelButton"
         @click="togglePopup"
       >
-        <span class="vsc-button-open" :class="{'vsc-button-showing': !show}" v-show="!show || !icon">
+        <span class="vsc-button-open" v-show="!show || !icon">
           <slot
             name="button"
             :open="show"
@@ -56,7 +56,7 @@
             >
           </slot>
         </span>
-        <span class="vsc-button-close" :class="{'vsc-button-close-showing': show}" v-show="show && icon">
+        <span class="vsc-button-close" v-show="show && icon">
           <slot name="button-close">
             <img
               :src="`${urlAssets}/icons/close.svg`"

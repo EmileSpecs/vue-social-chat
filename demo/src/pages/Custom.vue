@@ -50,6 +50,13 @@
       >
       <span v-show="open">CLOSE</span>
     </template>
+    <template v-slot:button-close>
+      <img
+        src="../assets/close.svg"
+        alt="icon close"
+        aria-hidden="true"
+      >
+    </template>
   </VueSocialChat>
 </template>
 
